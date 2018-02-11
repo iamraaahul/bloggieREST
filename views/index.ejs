@@ -1,0 +1,36 @@
+<% include ./partials/header.ejs%>
+
+<div class="ui main text container">
+    <div class="ui huge header">BLOGGIE - A RESTful BLOG</div>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% blogs.forEach((blog) => { %>
+            <div class="item">
+                <div class="image">
+                    <img src="<%=blog.image %>" width="400" height="300" alt="Image">
+                </div>
+            </div>
+            <div class="content">
+                <a class="header"><%= blog.title %></a>
+                <div class="meta">
+                    <span><%= blog.created.toDateString() %></span>
+                </div>
+                <div class="description">
+                    <p><%- blog.body.substr(0, 100) %>...</p
+                </div>
+                <div class="extras">
+                    <a class="ui basic floated green button" href="/blogs/<%=blog._id %>">
+                        Read More
+                        <i class="right chevron icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+
+
+
+
+<% include ./partials/footer.ejs%>
